@@ -2,24 +2,11 @@ package day01
 
 import util.readFile
 
-fun main() {
-    val testData = """
-    L68
-    L30
-    R48
-    L5
-    R60
-    L55
-    L1
-    L99
-    R14
-    L82 
-    """.trimIndent().split("\n")
-
-    val input = readFile("src/day01/input/01-1.txt")
+fun run() {
+    val input = readFile("input/day01.txt")
 
     println("Part 1 result: ${part1(input)}")
-    println("Part 2 result: ${part2(testData)}")
+    println("Part 2 result: ${part2(input)}")
 }
 
 fun part1(input: List<String>): UInt {
@@ -29,8 +16,12 @@ fun part1(input: List<String>): UInt {
     for (move in input) {
         current += extractValue(move.trim())
 
-        while (current < 0) current += 100
-        while (current > 99) current -= 100
+        val turns = current / 100
+        current += -turns * 100
+
+        if (current < 0) {
+            current += 100
+        }
 
         if (current == 0) result++
     }
@@ -58,26 +49,17 @@ fun part2(input: List<String>): UInt {
 
         // I need a test framework for this project...
 
-        print("Current: $current, Move: $move, ")
         current += extractValue(move.trim())
-        println("After: $current")
 
-        print("Adjustment left: ")
         while (current < 0) {
             current += 100
             result++
-            print("$current ")
         }
-        println()
-        print("Adjustment right: ")
         while (current > 99) {
             current -= 100
             result++
-            print("$current ")
         }
-        println()
 
-        println("Result: $result")
     }
 
     return result
