@@ -14,8 +14,12 @@ fun part1(input: List<String>): UInt {
     var current = 50
 
     for (move in input) {
+        // extract the amount the knob needs to be turned
+        // L255 -> -255
+        // R4 -> 4
         current += extractValue(move.trim())
 
+        // strip the hundreds, not needed in this case
         val turns = current / 100
         current += -turns * 100
 
@@ -23,6 +27,7 @@ fun part1(input: List<String>): UInt {
             current += 100
         }
 
+        // only interested when landing on 0
         if (current == 0) result++
     }
 
@@ -34,32 +39,35 @@ fun part2(input: List<String>): UInt {
     var current = 50
 
     for (move in input) {
-        // This scenario doesn't count the following corner case:
-        // If the dial is at a positive number X and we have a move LX
-        // So if we have result = 55, we receive move = L55, then the dial will point at 0, but not count it as a pass through 0
+        // in this case I needed slightly different logic for L and R turns, so extraction is a bit different
+        val direction = move[0]
+        val clicks = move.substring(1).trim().toInt()
 
-        // I think it would be the best to check for 2 situations
-        //   a. if we land on a 0
-        //   b. how many whole turns have been made
-        // Corner cases:
-        //   1. result = 55, move = L55, dial = 0 - counted 1 by a.
-        //   2. result = 50, move = R300, dial = 50 - counted 3 by b.
-        //   3. result = 50, move = R550, dial = 0 - counted 1 by a. 5 by b.
-        //   4. result = 50, move = L550, dial = 0 - counted 1 by a. 5 by b.
+        // each whole turn passes through 0 once
+        // if we start from 0 and do a turn, we still want to count it once
+        // so increment the result by amount of whole turns
+        val turns = clicks / 100
+        val rest = clicks - turns * 100
+        result += turns.toUInt()
 
-        // I need a test framework for this project...
-
-        current += extractValue(move.trim())
-
-        while (current < 0) {
-            current += 100
-            result++
+        if (direction == 'L') {
+            if (current == 0) { // if we start from 0, we don't want to count LX as passing through 0
+                current += 100
+            } else if (rest > current) { // case for current = 40, move = L50, etc.
+                result++
+                current += 100
+            } else if (rest == current) { // case for landing on 0
+                result++
+            }
+            current -= rest
+        } else {
+            // right is simpler, all the cases from left are covered by this
+            if (rest + current > 99) {
+                result++
+                current -= 100
+            }
+            current += rest
         }
-        while (current > 99) {
-            current -= 100
-            result++
-        }
-
     }
 
     return result
