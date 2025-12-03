@@ -15,7 +15,7 @@ class Day01Test {
         L99
         R14
         L82 
-        """.trimIndent().split("\n")
+    """.trimIndent().split("\n")
 
 //    Wrong scenario for part 2 from log analysis:
 //    R50, CB: 98, RB: 51, CA: 48, RA: 52
@@ -32,7 +32,7 @@ class Day01Test {
         R34
         L63
         R91
-        """.trimIndent().split("\n")
+    """.trimIndent().split("\n")
 
     @Test
     fun part1Test() {
