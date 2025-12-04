@@ -13,12 +13,12 @@ class Day03Test {
 
     @Test
     fun part1Test() {
-        assertEquals(357, part1(testData1))
+        assertEquals(357, findMaxPower(testData1, 2))
     }
 
     @Test
     fun part2Test() {
-        assertEquals(3121910778619, part2(testData1))
+        assertEquals(3121910778619, findMaxPower(testData1, 12))
     }
 
     @Test
@@ -27,14 +27,6 @@ class Day03Test {
         assertEquals(0, findHighestFirstIdx(listOf(9, 8, 7, 6, 5, 4, 3, 2, 1)))
         assertEquals(0, findHighestFirstIdx(listOf(1, 1, 1, 1)))
         assertEquals(2, findHighestFirstIdx(listOf(1, 1, 4, 4)))
-    }
-
-    @Test
-    fun findHighestSecondTest() {
-        assertEquals(9, findHighestSecond(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9), 7))
-        assertEquals(8, findHighestSecond(listOf(9, 8, 7, 6, 5, 4, 3, 2, 1), 0))
-        assertEquals(1, findHighestSecond(listOf(1, 1, 1, 1), 0))
-        assertEquals(4, findHighestSecond(listOf(1, 1, 4, 4), 2))
     }
 
     @Test
