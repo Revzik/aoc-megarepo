@@ -31,6 +31,7 @@ fun countRemovableRolls(map: Array<CharArray>): Int {
     var result = 0
     var previousResult = -1
 
+    // if there is no more rolls to remove then the previous result will be the same as current
     while (result != previousResult) {
         previousResult = result
 

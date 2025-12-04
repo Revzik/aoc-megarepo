@@ -1,12 +1,11 @@
 package util
 
-import java.io.File
+import base.TestWithResources
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
-import kotlin.test.assertNotNull
 
-class InputTest {
+class InputTest : TestWithResources() {
 
     val mapPath = getAbsolutePath("input/mapInput.txt")
 
@@ -40,11 +39,5 @@ class InputTest {
 
         assertEquals(expected.size, actual.size)
         expected.forEachIndexed { index, arr -> assertContentEquals(arr, actual[index]) }
-    }
-
-    fun getAbsolutePath(resourcePath: String): String {
-        val resourceUrl = this::class.java.classLoader.getResource(resourcePath)
-        assertNotNull(resourceUrl)
-        return File(resourceUrl.toURI()).absolutePath
     }
 }

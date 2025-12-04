@@ -1,24 +1,12 @@
 package day04
 
+import base.TestWithResources
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class Day04Test {
+class Day04Test : TestWithResources() {
 
-    val testMap = arrayOf(
-        "............".toCharArray(),
-        "...@@.@@@@..".toCharArray(),
-        ".@@@.@.@.@@.".toCharArray(),
-        ".@@@@@.@.@@.".toCharArray(),
-        ".@.@@@@..@..".toCharArray(),
-        ".@@.@@@@.@@.".toCharArray(),
-        "..@@@@@@@.@.".toCharArray(),
-        "..@.@.@.@@@.".toCharArray(),
-        ".@.@@@.@@@@.".toCharArray(),
-        "..@@@@@@@@..".toCharArray(),
-        ".@.@.@@@.@..".toCharArray(),
-        "............".toCharArray()
-    )
+    val testMap = readResourceExtendedMap("input/day04.txt", '.')
 
     @Test
     fun `counts accessible rolls properly`() {

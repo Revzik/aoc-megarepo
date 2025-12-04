@@ -1,21 +1,11 @@
 package day01
 
+import base.TestWithResources
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class Day01Test {
-    val testData1 = """
-        L68
-        L30
-        R48
-        L5
-        R60
-        L55
-        L1
-        L99
-        R14
-        L82 
-    """.trimIndent().split("\n")
+class Day01Test : TestWithResources() {
+    val testData1 = readResourceFile("input/day01.txt")
 
 //    Wrong scenario for part 2 from log analysis:
 //    R50, CB: 98, RB: 51, CA: 48, RA: 52

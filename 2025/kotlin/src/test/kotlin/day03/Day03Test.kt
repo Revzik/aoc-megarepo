@@ -1,24 +1,20 @@
 package day03
 
+import base.TestWithResources
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class Day03Test {
-    val testData1 = """
-        987654321111111
-        811111111111119
-        234234234234278
-        818181911112111
-    """.trimIndent().split("\n")
+class Day03Test : TestWithResources() {
+    val testData = readResourceFile("input/day03.txt")
 
     @Test
     fun part1Test() {
-        assertEquals(357, findMaxPower(testData1, 2))
+        assertEquals(357, findMaxPower(testData, 2))
     }
 
     @Test
     fun part2Test() {
-        assertEquals(3121910778619, findMaxPower(testData1, 12))
+        assertEquals(3121910778619, findMaxPower(testData, 12))
     }
 
     @Test

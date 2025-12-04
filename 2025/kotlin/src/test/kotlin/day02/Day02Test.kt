@@ -1,16 +1,17 @@
 package day02
 
+import base.TestWithResources
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class Day02Test {
-    val testData1 = "11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124"
+class Day02Test : TestWithResources() {
+    val testData = readResourceFile("input/day02.txt")[0]
 
     @Test
     fun part1Test() {
-        assertEquals(1227775554L, part1(testData1.split(',')))
+        assertEquals(1227775554L, part1(testData.split(',')))
     }
 
     @Test
@@ -23,7 +24,7 @@ class Day02Test {
 
     @Test
     fun part2Test() {
-        assertEquals(4174379265L, part2(testData1.split(',')))
+        assertEquals(4174379265L, part2(testData.split(',')))
     }
 
     @Test
