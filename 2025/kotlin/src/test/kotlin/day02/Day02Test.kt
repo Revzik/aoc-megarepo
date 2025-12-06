@@ -7,11 +7,13 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class Day02Test : TestWithResources() {
+
     val testData = readResourceFile("input/day02.txt")[0]
+    val testAnswers = readResourceFile("answers/day02.txt").map { s -> s.trim().toLong() }
 
     @Test
     fun part1Test() {
-        assertEquals(1227775554L, part1(testData.split(',')))
+        assertEquals(testAnswers[0], part1(testData.split(',')))
     }
 
     @Test
@@ -24,7 +26,7 @@ class Day02Test : TestWithResources() {
 
     @Test
     fun part2Test() {
-        assertEquals(4174379265L, part2(testData.split(',')))
+        assertEquals(testAnswers[1], part2(testData.split(',')))
     }
 
     @Test

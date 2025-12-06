@@ -5,16 +5,18 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class Day03Test : TestWithResources() {
+
     val testData = readResourceFile("input/day03.txt")
+    val testAnswers = readResourceFile("answers/day03.txt").map { s -> s.trim().toLong() }
 
     @Test
     fun part1Test() {
-        assertEquals(357, findMaxPower(testData, 2))
+        assertEquals(testAnswers[0], findMaxPower(testData, 2))
     }
 
     @Test
     fun part2Test() {
-        assertEquals(3121910778619, findMaxPower(testData, 12))
+        assertEquals(testAnswers[1], findMaxPower(testData, 12))
     }
 
     @Test

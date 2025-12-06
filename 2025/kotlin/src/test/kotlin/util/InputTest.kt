@@ -7,7 +7,7 @@ import kotlin.test.assertEquals
 
 class InputTest : TestWithResources() {
 
-    val mapPath = getAbsolutePath("input/mapInput.txt")
+    val mapPath = getAbsolutePath("mapInput.txt")
 
     @Test
     fun `can read file as 2D array`() {
