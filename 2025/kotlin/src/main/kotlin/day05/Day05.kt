@@ -5,6 +5,7 @@ import util.readFile
 fun run() {
     val input = parseInput(readFile("input/day05.txt"))
 
+    println("Day 5: Cafeteria")
     println("Part 1 result: ${countFreshIngredients(input)}")
     println("Part 2 result: ${countPossibleFreshIngredients(input)}")
 }

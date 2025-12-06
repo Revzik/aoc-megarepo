@@ -10,6 +10,8 @@ repositories {
 }
 
 dependencies {
+    implementation("org.jetbrains.kotlinx:kotlinx-cli-jvm:0.3.5")
+
     testImplementation(kotlin("test"))
 }
 

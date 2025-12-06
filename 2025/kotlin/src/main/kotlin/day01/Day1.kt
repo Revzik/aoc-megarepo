@@ -5,6 +5,7 @@ import util.readFile
 fun run() {
     val input = readFile("input/day01.txt")
 
+    println("Day 1: Secret Entrance")
     println("Part 1 result: ${part1(input)}")
     println("Part 2 result: ${part2(input)}")
 }

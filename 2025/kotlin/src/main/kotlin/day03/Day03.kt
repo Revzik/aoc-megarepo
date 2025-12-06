@@ -3,6 +3,7 @@ package day03
 fun run() {
     val input = util.readFile("input/day03.txt")
 
+    println("Day 3: Lobby")
     println("Part 1 result: ${findMaxPower(input, 2)}")
     println("Part 2 result: ${findMaxPower(input, 12)}")
 }

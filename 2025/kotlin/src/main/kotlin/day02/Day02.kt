@@ -3,6 +3,7 @@ package day02
 fun run() {
     val input = util.readFile("input/day02.txt")[0].split(",")
 
+    println("Day 2: Gift Shop")
     println("Part 1 result: ${part1(input)}")
     println("Part 2 result: ${part2(input)}")
 }

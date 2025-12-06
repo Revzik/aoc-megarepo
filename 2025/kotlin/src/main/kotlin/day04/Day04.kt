@@ -5,6 +5,7 @@ const val roll = '@'
 fun run () {
     val input = util.readExtendedMap("input/day04.txt", '.')
 
+    println("Day 4: Printing Department")
     println("Part 1 result: ${countAccessibleRolls(input)}")
     println("Part 2 result: ${countRemovableRolls(input)}")
 }
